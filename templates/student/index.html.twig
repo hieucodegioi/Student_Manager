@@ -1,0 +1,83 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Student index{% endblock %}
+
+{% block body %}
+    <h1>Student index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Adress</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.Dob ? student.Dob|date('Y-m-d') : '' }}</td>
+                <td>{{ student.Gender }}</td>
+                <td>{{ student.Email }}</td>
+                <td>{{ student.Adress }}</td>
+                <td>
+                    <a href="{{ path('app_student_show', {'id': student.id}) }}">show</a>
+                    <a href="{{ path('app_student_edit', {'id': student.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_student_new') }}">Create new</a>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Student{% endblock %}
+
+{% block body %}
+    <div class="container-md">
+        <div class="row">
+            
+            <div class="col-9">
+                <div class="container">
+                    <h4>Student</h4>
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        {% for student in students %}
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ student.Name }}</h5>
+                                        <h6 class="card-title"> {{ student.Dob|date('d-m-Y') }}</h6>
+                                        <p>Gender {{ student.Gender }}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="{{ path('app_student_show', {'id': student.id}) }}"
+                                           class="btn btn-primary">Show</a>
+                                        <a href="{{ path('app_student_edit', {'id': student.id}) }}"
+                                           class="btn btn-primary">Edit</a>   
+                                    </div>
+                                    
+                                        
+                                    
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <a href="{{ path('app_student_new') }}">Create new</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
