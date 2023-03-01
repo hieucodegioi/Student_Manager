@@ -29,6 +29,16 @@ class Score
      */
     private $Student;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $Point1;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $Point2;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +64,30 @@ class Score
     public function setStudent(?Student $Student): self
     {
         $this->Student = $Student;
+
+        return $this;
+    }
+
+    public function getPoint1(): ?float
+    {
+        return $this->Point1;
+    }
+
+    public function setPoint1(float $Point1): self
+    {
+        $this->Point1 = $Point1;
+
+        return $this;
+    }
+
+    public function getPoint2(): ?float
+    {
+        return $this->Point2;
+    }
+
+    public function setPoint2(float $Point2): self
+    {
+        $this->Point2 = $Point2;
 
         return $this;
     }

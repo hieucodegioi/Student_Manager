@@ -9,13 +9,22 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>actions</th>
+                <th>Student</th>
+                <th>Subject</th>
+                <th>Point1</th>
+                <th>Point2</th>
+
             </tr>
         </thead>
         <tbody>
         {% for score in scores %}
             <tr>
                 <td>{{ score.id }}</td>
+                <td>{{ score.Student.Name }}</td>
+                <td>{{ score.Subject.Name }}</td>
+                <td>{{ score.Point1 }}</td>
+                <td>{{ score.Point2 }}</td>
+                
                 <td>
                     <a href="{{ path('app_score_show', {'id': score.id}) }}">show</a>
                     <a href="{{ path('app_score_edit', {'id': score.id}) }}">edit</a>

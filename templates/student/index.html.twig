@@ -60,7 +60,8 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ student.Name }}</h5>
                                         <h6 class="card-title"> {{ student.Dob|date('d-m-Y') }}</h6>
-                                        <p >Gender {{ student.Gender }}</p>
+                                        <p >Gender: {{ student.Gender }}</p>
+                                        <p >Class: {{ student.Class.Name }}</p>
                                         
                                     </div>
                                     <div class="card-footer">       
