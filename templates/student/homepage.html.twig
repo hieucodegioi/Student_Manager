@@ -4,6 +4,14 @@
 
 {% block body %}
     {{ include('_nav.html.twig') }}
-    
+    <div id="slider">
+            <figure>
+                <img src="{{ asset('images/slide1.jpg') }}" alt=""/>
+                <img src="{{ asset('images/slide2.jpg') }}" alt=""/>
+                <img src="{{ asset('images/slide3.jpg') }}" alt=""/>
+                <img src="{{ asset('images/slide4.jpg') }}" alt=""/>
+                <img src="{{ asset('images/slide5.jpg') }}" alt=""/>
+            </figure>
+        </div>
     {{ include('footer.html.twig') }}
 {% endblock %}
