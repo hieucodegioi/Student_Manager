@@ -3,15 +3,38 @@
 {% block title %}Student_Management{% endblock %}
 
 {% block body %}
-    {{ include('_nav.html.twig') }}
+    <div>
+    <h2>WELCOME TO THE CLASS</h2>
+    </div>
     <div id="slider">
             <figure>
                 <img src="{{ asset('images/slide1.jpg') }}" alt=""/>
-                <img src="{{ asset('images/slide2.jpg') }}" alt=""/>
-                <img src="{{ asset('images/slide3.jpg') }}" alt=""/>
                 <img src="{{ asset('images/slide4.jpg') }}" alt=""/>
                 <img src="{{ asset('images/slide5.jpg') }}" alt=""/>
             </figure>
         </div>
-    {{ include('footer.html.twig') }}
+   <div class="pro-container">
+                 {% for student in students %}
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ student.Name }}</h5>
+                                        <h6 class="card-title"> {{ student.Dob|date('d-m-Y') }}</h6>
+                                        <p >Gender: {{ student.Gender }}</p>
+                                        <p >Class: {{ student.Class.Name }}</p>
+                                        
+                                    </div>
+                                    <div class="card-footer">       
+                                        <a href="{{ path('app_student_show', {'id': student.id}) }}"
+                                           class="btn btn-primary">Show</a>
+                                        <a href="{{ path('app_student_edit', {'id': student.id}) }}"
+                                           class="btn btn-primary">Edit</a>   
+                                    </div>   
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="card-footer">       
+                                        <a href="{{ path('app_student_new') }}">Create new</a>
+                                        </div>
+            </div>
 {% endblock %}

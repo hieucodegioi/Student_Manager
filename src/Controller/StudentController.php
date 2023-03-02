@@ -15,12 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class StudentController extends AbstractController
 {
+    
     /**
      * @Route("/", name="app_student_index", methods={"GET"})
      */
     public function index(StudentRepository $studentRepository): Response
     {
-        return $this->render('student/index.html.twig', [
+        return $this->render('student/homepage.html.twig', [
             'students' => $studentRepository->findAll(),
         ]);
     }

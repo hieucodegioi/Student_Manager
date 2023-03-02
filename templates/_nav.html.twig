@@ -6,6 +6,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/slider.css') }}" rel="stylesheet"/>
+
         
     </head>
 
@@ -17,6 +19,8 @@
                 <ul id="navbar">
                     <li><a class="active" href="{{ path('app_student_index') }}">Home</a></li>
                     <li><a href="{{ path('app_student_index') }}">Student List</a></li>
+                    <li><a href="{{ path('app_score_index') }}">Score</a></li>
+                    <li><a href="{{ path('app_subject_index') }}">Subject</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                     {% if app.user %}

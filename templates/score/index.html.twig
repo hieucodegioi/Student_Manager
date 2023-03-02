@@ -5,38 +5,29 @@
 {% block body %}
     <h1>Score index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Student</th>
-                <th>Subject</th>
-                <th>Point1</th>
-                <th>Point2</th>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        {% for score in scores %}
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ score.Subject.Name }}</h5>
+                                        <h6 class="card-title"> {{ score.Student.Name}}
+                                        <p >Point1 {{ score.Point1 }}</p>
+                                        <p >Point2 {{ score.Point2 }}</p>
+                                        
+                                    </div>
+                                    <div class="card-footer">       
+                                        <a href="{{ path('app_score_show', {'id': score.id}) }}"
+                                           class="btn btn-primary">Show</a>
+                                        <a href="{{ path('app_score_edit', {'id': score.id}) }}"
+                                           class="btn btn-primary">Edit</a>   
+                                    </div>   
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
 
-            </tr>
-        </thead>
-        <tbody>
-        {% for score in scores %}
-            <tr>
-                <td>{{ score.id }}</td>
-                <td>{{ score.Student.Name }}</td>
-                <td>{{ score.Subject.Name }}</td>
-                <td>{{ score.Point1 }}</td>
-                <td>{{ score.Point2 }}</td>
-                
-                <td>
-                    <a href="{{ path('app_score_show', {'id': score.id}) }}">show</a>
-                    <a href="{{ path('app_score_edit', {'id': score.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_score_new') }}">Create new</a>
+    
 {% endblock %}
