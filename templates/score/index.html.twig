@@ -15,16 +15,21 @@
                 
             </figure>
         </div>
-        <h1>Score index</h1>
+        <h1>Score</h1>
+    <div class="container-md">
+        <div class="row">
+            
+            <div class="col-9">
+                <div class="container">
     <div class="row row-cols-1 row-cols-md-4 g-4">
                         {% for score in scores %}
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ score.Subject.Name }}</h5>
-                                        <h6 class="card-title"> {{ score.Student.Name}}
-                                        <p >Point1 {{ score.Point1 }}</p>
-                                        <p >Point2 {{ score.Point2 }}</p>
+                                        <h5 class="card-title"> {{ score.Student.Name}}</h5>
+                                        <p >Point1: {{ score.Point1 }}</p>
+                                        <p >Point2: {{ score.Point2 }}</p>
                                         
                                     </div>
                                     <div class="card-footer">       
@@ -36,9 +41,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                          </div>
+                </div>
+            </div>
+        </div>
                         
                         
-                    </div>
+        </div>
+        <a href="{{ path('app_score_new') }}" class="btn btn-primary">Create new</a>
 
     
 {% endblock %}
